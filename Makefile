@@ -21,7 +21,11 @@ OBJECTS += $(OBJECTDIR)/xenstore
 PACKAGE = xe-guest-utilities
 VERSION = $(PRODUCT_VERSION)
 RELEASE := $(shell git rev-list HEAD | wc -l)
-ARCH := $(shell go version|awk -F'/' '{print $$2}')
+ifeq ($(GOARCH),)
+        ARCH := $(shell go version|awk -F'/' '{print $$2}')
+else
+        ARCH := $(GOARCH)
+endif
 
 ifeq ($(ARCH), amd64)
 	ARCH = x86_64
@@ -55,15 +59,18 @@ $(DISTDIR)/$(PACKAGE)_$(VERSION)-$(RELEASE)_$(ARCH).tgz: $(OBJECTS)
 	  install -m 755 $(OBJECTDIR)/xe-daemon $(STAGEDIR)/usr/sbin/xe-daemon ; \
 	  install -d $(STAGEDIR)/usr/bin/ ; \
 	  install -m 755 $(OBJECTDIR)/xenstore $(STAGEDIR)/usr/bin/xenstore ; \
-	  ln -sf /usr/bin/xenstore $(STAGEDIR)/usr/bin/xenstore-read ; \
-	  ln -sf /usr/bin/xenstore $(STAGEDIR)/usr/bin/xenstore-write ; \
-	  ln -sf /usr/bin/xenstore $(STAGEDIR)/usr/bin/xenstore-exists ; \
-	  ln -sf /usr/bin/xenstore $(STAGEDIR)/usr/bin/xenstore-rm ; \
-	  ln -sf /usr/bin/xenstore $(STAGEDIR)/usr/bin/xenstore-list ; \
+	  ln -sf xenstore $(STAGEDIR)/usr/bin/xenstore-read ; \
+	  ln -sf xenstore $(STAGEDIR)/usr/bin/xenstore-write ; \
+	  ln -sf xenstore $(STAGEDIR)/usr/bin/xenstore-exists ; \
+	  ln -sf xenstore $(STAGEDIR)/usr/bin/xenstore-rm ; \
+	  ln -sf xenstore $(STAGEDIR)/usr/bin/xenstore-list ; \
+	  ln -sf xenstore $(STAGEDIR)/usr/bin/xenstore-ls ; \
+	  ln -sf xenstore $(STAGEDIR)/usr/bin/xenstore-chmod ; \
+	  ln -sf xenstore $(STAGEDIR)/usr/bin/xenstore-watch ; \
 	  install -d $(STAGEDIR)/etc/udev/rules.d/ ; \
 	  install -m 644 $(SOURCEDIR)/xen-vcpu-hotplug.rules $(STAGEDIR)/etc/udev/rules.d/z10_xen-vcpu-hotplug.rules ; \
 	  cd $(STAGEDIR) ; \
-	  tar cf $@ * \
+	  tar zcf $@ * \
 	)
 
 $(OBJECTDIR)/xe-daemon: $(XE_DAEMON_SOURCES:%=$(GOBUILDDIR)/%)
