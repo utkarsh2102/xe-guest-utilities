@@ -1,3 +1,10 @@
+xe-guest-utilities (7.20.2-1) lunar; urgency=medium
+
+  * New upstream version 7.20.2
+  * Refresh d/patches
+
+ -- Utkarsh Gupta <utkarsh@debian.org>  Thu, 05 Jan 2023 13:43:38 +0530
+
 xe-guest-utilities (7.10.0-0ubuntu2) eoan; urgency=medium
 
   * Set GOCACHE to a safely writeable directory, fixing ftbfs with Go 1.12+.
