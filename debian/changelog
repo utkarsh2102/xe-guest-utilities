@@ -1,3 +1,9 @@
+xe-guest-utilities (7.20.2-0ubuntu1~22.04.1) jammy; urgency=medium
+
+  * No-change rebuild for Jammy (based on Lunar). (LP: #2006459)
+
+ -- Utkarsh Gupta <utkarsh@ubuntu.com>  Tue, 07 Feb 2023 16:53:41 +0530
+
 xe-guest-utilities (7.20.2-0ubuntu1) lunar; urgency=medium
 
   * New upstream version 7.20.2.
