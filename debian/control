@@ -1,17 +1,22 @@
 Source: xe-guest-utilities
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Section: admin
 Priority: optional
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Homepage: https://launchpad.net/ubuntu/+source/xe-guest-utilities
-Standards-Version: 4.1.4
-Build-Depends: debhelper-compat (= 12), gawk, golang-go, dh-golang, golang-golang-x-sys-dev
+Build-Depends: debhelper-compat (= 12),
+               dh-golang,
+               gawk,
+               golang-go,
+               golang-golang-x-sys-dev
+Standards-Version: 4.5.0
 Vcs-Browser: https://git.launchpad.net/~ubuntu-core-dev/ubuntu/+source/xe-guest-utilities
 Vcs-Git: https://git.launchpad.net/~ubuntu-core-dev/ubuntu/+source/xe-guest-utilities
+Homepage: https://launchpad.net/ubuntu/+source/xe-guest-utilities
 XS-Go-Import-Path: github.com/xenserver/xe-guest-utilities
 
 Package: xe-guest-utilities
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
 Description: daemon for monitoring Xen Virtual machines
  xe-daemon for monitoring Virtual Machines on a Xen Hypervisor.
  .
