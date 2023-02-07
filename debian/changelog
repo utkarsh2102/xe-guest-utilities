@@ -1,9 +1,14 @@
-xe-guest-utilities (7.20.2-1) lunar; urgency=medium
+xe-guest-utilities (7.20.2-0ubuntu1) lunar; urgency=medium
 
-  * New upstream version 7.20.2
-  * Refresh d/patches
+  * New upstream version 7.20.2.
+  * Refresh d/patches.
+  * Drop d/patches as we're using the upstream Makefile.
+  * Fix FTBFS with newer Golang.
+    - Thanks, Shengjing Zhu, for your help! \o/
+  * Fix FTBFS when bumping dh-compat to 12.
+  * Prettify d/control and fix minor issues.
 
- -- Utkarsh Gupta <utkarsh@debian.org>  Thu, 05 Jan 2023 13:43:38 +0530
+ -- Utkarsh Gupta <utkarsh@ubuntu.com>  Tue, 07 Feb 2023 13:43:38 +0530
 
 xe-guest-utilities (7.10.0-0ubuntu2) eoan; urgency=medium
 
