@@ -1,9 +1,15 @@
 #!/usr/bin/make -f
 
-export GOCACHE := $(CURDIR)/.go-cache
-
 %:
-	dh $@ --with systemd
+	dh $@ --with systemd --buildsystem=golang --builddirectory=_build
+
+override_dh_auto_build:
+	GOPATH=$(CURDIR)/_build/ GOCACHE=$(CURDIR)/_build/go-build GO111MODULE=off \
+		$(MAKE) build
+
+override_dh_auto_install:
+
+override_dh_auto_test:
 
 override_dh_installinit:
 	dh_installinit --no-restart-on-upgrade --name xe-daemon
