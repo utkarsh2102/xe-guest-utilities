@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Homepage: https://launchpad.net/ubuntu/+source/xe-guest-utilities
 Standards-Version: 4.1.4
-Build-Depends: debhelper (>= 10), gawk, golang-go, dh-golang, golang-golang-x-sys-dev
+Build-Depends: debhelper-compat (= 12), gawk, golang-go, dh-golang, golang-golang-x-sys-dev
 Vcs-Browser: https://git.launchpad.net/~ubuntu-core-dev/ubuntu/+source/xe-guest-utilities
 Vcs-Git: https://git.launchpad.net/~ubuntu-core-dev/ubuntu/+source/xe-guest-utilities
 XS-Go-Import-Path: github.com/xenserver/xe-guest-utilities
