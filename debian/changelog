@@ -1,3 +1,9 @@
+xe-guest-utilities (7.20.2-0ubuntu1~22.04.2) jammy; urgency=medium
+
+  * No-change upload to fix accidental acceptance.
+
+ -- Utkarsh Gupta <utkarsh@ubuntu.com>  Tue, 14 Feb 2023 16:12:31 +0100
+
 xe-guest-utilities (7.20.2-0ubuntu1~22.04.1) jammy; urgency=medium
 
   * No-change rebuild for Jammy (based on Lunar). (LP: #2006459)
